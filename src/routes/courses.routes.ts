@@ -8,11 +8,11 @@ const coursesRouter = Router();
 
 coursesRouter.post('/', async (request, response) => {
     try{
-        const {name, user_id} = request.body;
+        const {name, description, user_id} = request.body;
 
         const createCourse = new CreatecourseService();
 
-        const course = await createCourse.execute({name, user_id});
+        const course = await createCourse.execute({name, description, user_id});
 
         return response.json(course);
     } catch (error) {
